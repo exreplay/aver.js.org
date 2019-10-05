@@ -168,11 +168,13 @@ Inside the Action you have access to the whole store, because it is initialized,
 
 > The server `context` is still a WIP. In a future release you should be able to manipulate it, to provide the data you need.
 
-## Clientside Hydration
+## Client Side Hydration
 
+Because you are able to adjust your store on the server side, the client should know what the actual state is and use it. This is done by setting the `window.__INITIAL_STATE__` variable so the client can read and use it. This lets you use something like the `serverPrefetch` or the `asyncData` hook where you can call Vuex Actions and mutate states. By doing this, the server has the correct data to render the initial state of the requested page and the client knows where to pick up.
+
+## Persisted State
 
 
 ## ToDo
-- clientside hydration set initial state
 - vuex persistate state automatically gets implemented
 - hot reloading implemented
