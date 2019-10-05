@@ -174,7 +174,25 @@ Because you are able to adjust your store on the server side, the client should 
 
 ## Persisted State
 
+Aver comes with the [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) plugin preinstalled and configured. This allows you to store states inside a cookie. We choose to do it with cookies so the persisted state is available on the server side. Currently it can only be used with the decorators method out of the box but you can overwrite the behaviour in the `store.js` file.
 
-## ToDo
-- vuex persistate state automatically gets implemented
-- hot reloading implemented
+Using the example from above, all you have to do is to add the `persistent` key to the class decorator. You can either pass `true` to persist all states, inside the module, or use an array of states.
+
+```js
+// TestStore.js
+import { VuexClass, Action, HasGetterAndMutation } from '@averjs/vuex-decorators';
+
+@VuexClass({
+  persistent: [ 'test' ]
+})
+export default class Test {
+  moduleName = 'test';
+
+  @HasGetterAndMutation test = 'awesome';
+
+  @Action async serverInit(context) {
+    const { data } = await axios({ method: 'GET', url: 'api-for-prefetch' });
+    this.$store.commit('test', data);
+  }
+}
+```
