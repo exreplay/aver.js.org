@@ -39,16 +39,15 @@ As your appliction grows and gets more complex, there are cases where just expor
 ```js
 export default ({ config, i18n }) => {
     const newConfig = {
-        ...config
+        ...config,
+        routes: [
+            {
+                name: 'home',
+                path: '/',
+                component: () => import('./Home').then(m => m.default)
+            }
+        ]
     };
-
-    newConfig.routes = [
-        {
-            name: 'home',
-            path: '/',
-            component: () => import('./Home').then(m => m.default)
-        }
-    ];
 
     return newConfig;
 };
