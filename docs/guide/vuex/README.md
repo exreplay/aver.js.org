@@ -176,7 +176,7 @@ Because you are able to adjust your store on the server side, the client should 
 
 Aver comes with the [vuex-persistedstate](https://github.com/robinvdvleuten/vuex-persistedstate) plugin preinstalled and configured. This allows you to store states inside a cookie. We choose to do it with cookies so the persisted state is available on the server side. Currently it can only be used with the decorators method out of the box but you can overwrite the behaviour in the `store.js` file.
 
-Using the example from above, all you have to do is to add the `persistent` key to the class decorator. You can either pass `true` to persist all states, inside the module, or use an array of states.
+Using the example from above, all you have to do is to add the `persistent` key to the class decorator. You can either pass `true`, to persist all states inside the module, or use an array of states.
 
 ```js
 // TestStore.js
