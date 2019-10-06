@@ -196,3 +196,5 @@ export default class Test {
   }
 }
 ```
+
+This creates a `vuex` cookie which holds all the states across every module, so be aware that cookies do have a size limitation.
