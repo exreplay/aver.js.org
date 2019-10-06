@@ -59,11 +59,6 @@ src (@)
 └───resources (@resources)
 ```
 
-### Vuex
-TODO
-
-### Vue router
-
 ### Server Routes
 TODO
 
