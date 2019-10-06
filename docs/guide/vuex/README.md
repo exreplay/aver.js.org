@@ -1,6 +1,6 @@
 # Vuex
 
-> Implementation of vuex in aver.js
+> Implementation of Vuex in aver.js
 
 [[toc]]
 
@@ -114,7 +114,7 @@ By leaving out the `moduleName`, you automatically create a global Vuex Store. B
 
 ## Class-based Vuex Store
 
-You can either write your Vuex Store the traditional way or use our package [@averjs/vuex-decorators](https://github.com/exreplay/vuex-decorators) which lets you use a classes. The package is installed alongside the `@averjs/core` package and you can use it right out of the box. Be aware that this Method only allows you to write Modules. If you need a global Vuex State, please use the traditional way.
+You can either write your Vuex Store the traditional way or use our package [@averjs/vuex-decorators](https://github.com/exreplay/vuex-decorators) which lets you use classes. The package is installed alongside the `@averjs/core` package and you can use it right out of the box. Be aware that this Method only allows you to write Modules. If you need a global Vuex State, please use the traditional way.
 
 This is how a Vuex Module could look like with decorators:
 ```js
@@ -145,7 +145,7 @@ export default class MyNewAwesomeVuexModuleFile {
 
 ## The serverInit Action
 
-Because aver supports SSR, it could be handy if there would be a way to execute a function on the server. This is where the `serverInit` Action comes in place. Aver looks in every Module you create and it the Action was found, it is executed on the server, to prefetch data you probably need for SSR. Using the `Decorators` method of writing a Module, this is how the `serverInit` Action could be implemented:
+Because aver supports SSR, it could be handy if there would be a way to execute a function on the server. This is where the `serverInit` Action comes in place. Aver looks in every Module you create and if the Action was found, it is executed on the server, to prefetch data you probably need for SSR. Using the `Decorators` method of writing a Module, this is how the `serverInit` Action could be implemented:
 
 ```js
 // TestStore.js
