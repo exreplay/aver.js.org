@@ -3,18 +3,35 @@
 [[toc]]
 
 ## Introduction
-The core principle of aver.js is a class-based structure. In it´s initial state you can use [vue-class-component](https://github.com/vuejs/vue-class-component)  and [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) for your single-file-components. To complete the way of writing your class based code with decorators, we added [vuex-decorators](https://github.com/exreplay/vuex-decorators) for vuex.
+Aver is a progressive framework based on Vue.js with support for Server Server-Side Rendering.
+
+Modern web applications need a lot of boilerplate to be powerful. It starts with setting up a bundler like webpack, get your server up and running with express, make use of SSR, and the list goes on.
+
+Managing such a project can be painful and even more when you want to reuse all that logic in different projects. This is where we try to provide you a solid base which handles all that and you can concenrate on building awesome web applications.
+
+## Features
+
+- Server-Side Rendering
+- i18n support using [vue-i18n](https://kazupon.github.io/vue-i18n/)
+- Hot Module Replacement in development
+- Plugin-System
+- Code Splitting
+- Transpile your code with Babel to ES2015+
+- Support for class-based SFC using [vue-class-component](https://github.com/vuejs/vue-class-component) and [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator)
+- Writing class-based vuex modules with [vuex-decorators](https://github.com/exreplay/vuex-decorators)
+- Server-Side API with express routes and middlewares
 
 ## Installation
 
-The `@averjs/core` holds the core with express and all the other stuff which is necessary for server side rendering. And than there is `@averjs/renderer` for all the webpack stuff. The 2 packages are seperated so you are able to have the rendering stuff in the `devDependencies` and therefore it is not getting installed in production. 
+There are 2 main packages you need to get started. One is the `@averjs/core` and the other is `@averjs/renderer`. The `core` holds the server logic like express to serve your application. The `renderer` handels the bundling of your application. By splitting the logic into 2 packages, the `renderer` can be placed in the `devDependencies` and all the bundling logic, which is not needed in production, is not getting installed.
 
 To install both, execute the following commands inside a new and empty directory.
-
 
 ``` bash
 yarn add @averjs/core
 yarn add --dev @averjs/renderer
+
+# or
 
 npm install @averjs/core
 npm install -D @averjs/renderer
@@ -29,11 +46,11 @@ Jump into your working directory and execute the following command.
 yarn aver init
 ```
 
-When the executable is done setting up the new Project, you can start the app by executing `yarn run dev` or `npm run dev`.
+When the executable is done setting up the new Project, you can start the dev server by executing `yarn run dev` or `npm run dev`.
 
 ### Folder structure
 
-There are 2 main root folders, `api` and `src`. All your Vue.js code belongs inside the `src` and all the server side code belongs in the `api` folder. When you setup the project by running the `aver init` command, you will see how the `api` and `src` folders should be strucuted. If you stick to the same structure, you are able to use the provided modules aliases which are listed in the folder structure below.
+There are 2 main root folders, `api` and `src`. All your Vue.js code belongs inside the `src` and all the server side code belongs in the `api` folder. When you setup the project by running the `aver init` command, you will see how the `api` and `src` folders should be structured.
 
 #### api folder
 ```
@@ -58,49 +75,3 @@ src (@)
 └───vuex (@vuex)
 └───resources (@resources)
 ```
-
-### Server Routes
-TODO
-
-### Middlewares
-TODO
-
-### Configuration
-
-By creating a aver-config.js file inside your root directory, you can configure Aver.js or provide plugins. You can find all parameters listed below.
-
-#### Core Paramters
-|Parameter|Type|Default|Description|
-|---|---|---|---|
-|progressbar|Boolean\|Object|false|The `vue-progressbar` is used to prive a progressbar on page loading or switching. For configuration options see [here](https://github.com/hilongjw/vue-progressbar#constructor-options)|
-
-#### Webpack Paramters
-|Parameter|Type|Default|Description|
-|---|---|---|---|
-|||||
-
-### Plugins
-
-This is a list of all the plugins currently available:
-
-|Plugin|Link|Description|
-|---|---|---|
-|@averjs/renderer|[https://www.npmjs.com/package/@averjs/renderer](https://www.npmjs.com/package/@averjs/renderer)|This package holds everything you need to render your server and client code.|
-|@averjs/mailer|[https://www.npmjs.com/package/@averjs/mailer](https://www.npmjs.com/package/@averjs/mailer)|This package holds nodemailer and email-templates for your mailing purposes.|
-|@averjs/mongodb|[https://www.npmjs.com/package/@averjs/mongodb](https://www.npmjs.com/package/@averjs/mongodb)|TODO|
-|@averjs/queue|[https://www.npmjs.com/package/@averjs/queue](https://www.npmjs.com/package/@averjs/queue)|TODO|
-|@averjs/session|[https://www.npmjs.com/package/@averjs/session](https://www.npmjs.com/package/@averjs/session)|TODO|
-|@averjs/vuex-decorators|[https://www.npmjs.com/package/@averjs/vuex-decorators](https://www.npmjs.com/package/@averjs/vuex-decorators)|TODO|
-|@averjs/websocket|[https://www.npmjs.com/package/@averjs/websocket](https://www.npmjs.com/package/@averjs/websocket)|TODO|
-
-
-### TODO
-
-- [ ] Add documentation
-- [x] Add jest
-- [ ] Add tests
-- [ ] Add modern mode
-- [ ] Add more css preprocessors
-- [ ] Use `joi` in config package (https://github.com/hapijs/joi)
-- [x] Add eslint
-- [x] Use `lodash/template` to pass configuration to vue app
