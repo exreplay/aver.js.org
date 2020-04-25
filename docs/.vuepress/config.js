@@ -13,7 +13,8 @@ module.exports = {
       '/guide/configuration/',
       '/guide/vuex/',
       '/guide/router/',
-      '/guide/meta/'
+      '/guide/meta/',
+      '/guide/plugins/'
     ]
   }
 }
