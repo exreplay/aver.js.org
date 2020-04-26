@@ -51,7 +51,7 @@ This function accepts a string with the new locale, changes the locale in i18n a
   <div>
     <span @click="changeLocale"></span>
     <span>current locale is {{ $locale.current() }}</span>
-    <span @click="$locale('en')">{{ $t('hello') }}</span>
+    <span @click="$locale.change('en')">{{ $t('hello') }}</span>
   </div>
 </template>
 
@@ -61,7 +61,7 @@ This function accepts a string with the new locale, changes the locale in i18n a
   @Component
   export default class Test extends Vue {
     changeLocale() {
-      this.$locale('en')
+      this.$locale.change('en')
     }
   }
 </script>
