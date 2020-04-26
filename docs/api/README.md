@@ -14,7 +14,7 @@ Every parameter described here, belongs into the `aver-config.js` file in your p
 - Type: `object`
 - Default: `{ silentTranslationWarn: true }`
 
-Set a default [vue-i18n](https://kazupon.github.io/vue-i18n/) config. You will need this to set the basic i18n config. If you need more control over the configuration, please consider creating a `i18n.js` entry file in your `src` folder.
+Set a default [vue-i18n](https://kazupon.github.io/vue-i18n/) config. You will need this to set the basic i18n config. If you need more control over the configuration, please consider creating a `i18n.js` entry file in your `src` folder which is described [here](/guide/i18n/#configuration).
 
 ### progressbar
 
